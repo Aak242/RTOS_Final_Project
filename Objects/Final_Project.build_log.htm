@@ -22,11 +22,12 @@ Dialog DLL:      TARMCM1.DLL V1.14.6.0
  
 <h2>Project:</h2>
 C:\Users\bsiva\Desktop\mahesh\University\SEM_4\CG2271\Final Project\Final_Project.uvprojx
-Project File Date:  03/28/2024
+Project File Date:  03/30/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.21', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'Target 1'
+compiling RTX_Config.c...
 assembling startup_MKL25Z4.s...
 RTE/Device/MKL25Z128xxx4/system_MKL25Z4.c(189): warning: unsafe buffer access [-Wunsafe-buffer-usage]
   189 |   PORTA_PCR18 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));
@@ -48,508 +49,644 @@ C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Inclu
       |                                                   ^~~~~~~~~~~
 2 warnings generated.
 compiling system_MKL25Z4.c...
-main.c(40): warning: no previous extern declaration for non-static variable 'currNote' [-Wmissing-variable-declarations]
-   40 | volatile int currNote = 0;
-      |              ^
-main.c(40): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-   40 | volatile int currNote = 0;
-      |          ^
-main.c(91): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
+C:/Users/bsiva/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/RTOS2/RTX/Source/rtx_lib.c(731): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  731 |       if (os_libspace_id[n] == NULL) {
+      |           ^~~~~~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/RTOS2/RTX/Source/rtx_lib.c(732): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  732 |         os_libspace_id[n] = id;
+      |         ^~~~~~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/RTOS2/RTX/Source/rtx_lib.c(734): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  734 |       if (os_libspace_id[n] == id) {
+      |           ^~~~~~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/RTOS2/RTX/Source/rtx_lib.c(746): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  746 |   return (void *)&os_libspace[n][0];
+      |                   ^~~~~~~~~~~
+4 warnings generated.
+compiling rtx_lib.c...
+main.c(7): warning: In file included from...
+./uart.h(16): warning: a function declaration without a prototype is deprecated in all versions of C [-Wstrict-prototypes]
+   16 | void initUART2()
+      |               ^
+      |                void
+./uart.h(29): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+   29 |         PORTE->PCR[UART_RX] |= (0b1011 << 16);
+      |                                 ^
+main.c(8): warning: In file included from...
+./motors.h(34): warning: implicit conversion turns floating-point number into integer: 'float' to 'uint32_t' (aka 'unsigned int') [-Wfloat-conversion]
+   34 |         TPM0_C0V = TPM0->MOD * coeff;
+      |                  ~ ~~~~~~~~~~^~~~~~~
+./motors.h(34): warning: implicit conversion from 'volatile uint32_t' (aka 'volatile unsigned int') to 'float' may lose precision [-Wimplicit-int-float-conversion]
+   34 |         TPM0_C0V = TPM0->MOD * coeff;
+      |                    ~~~~~~^~~ ~
+./motors.h(36): warning: implicit conversion turns floating-point number into integer: 'float' to 'uint32_t' (aka 'unsigned int') [-Wfloat-conversion]
+   36 |         TPM0_C2V = TPM0->MOD * coeff;
+      |                  ~ ~~~~~~~~~~^~~~~~~
+./motors.h(36): warning: implicit conversion from 'volatile uint32_t' (aka 'volatile unsigned int') to 'float' may lose precision [-Wimplicit-int-float-conversion]
+   36 |         TPM0_C2V = TPM0->MOD * coeff;
+      |                    ~~~~~~^~~ ~
+./motors.h(32): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+   32 |         float coeff = (float) power / 100.0f;
+      |               ^
+./motors.h(50): warning: implicit conversion turns floating-point number into integer: 'float' to 'uint32_t' (aka 'unsigned int') [-Wfloat-conversion]
+   50 |         TPM0_C1V = TPM0->MOD * coeff;
+      |                  ~ ~~~~~~~~~~^~~~~~~
+./motors.h(50): warning: implicit conversion from 'volatile uint32_t' (aka 'volatile unsigned int') to 'float' may lose precision [-Wimplicit-int-float-conversion]
+   50 |         TPM0_C1V = TPM0->MOD * coeff;
+      |                    ~~~~~~^~~ ~
+./motors.h(52): warning: implicit conversion turns floating-point number into integer: 'float' to 'uint32_t' (aka 'unsigned int') [-Wfloat-conversion]
+   52 |         TPM0_C3V = TPM0->MOD * coeff;
+      |                  ~ ~~~~~~~~~~^~~~~~~
+./motors.h(52): warning: implicit conversion from 'volatile uint32_t' (aka 'volatile unsigned int') to 'float' may lose precision [-Wimplicit-int-float-conversion]
+   52 |         TPM0_C3V = TPM0->MOD * coeff;
+      |                    ~~~~~~^~~ ~
+./motors.h(47): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+   47 |         float coeff = (float) power / 100.0f;
+      |               ^
+./motors.h(65): warning: implicit conversion turns floating-point number into integer: 'float' to 'uint32_t' (aka 'unsigned int') [-Wfloat-conversion]
+   65 |         TPM0_C1V = TPM0->MOD * coeff;
+      |                  ~ ~~~~~~~~~~^~~~~~~
+./motors.h(65): warning: implicit conversion from 'volatile uint32_t' (aka 'volatile unsigned int') to 'float' may lose precision [-Wimplicit-int-float-conversion]
+   65 |         TPM0_C1V = TPM0->MOD * coeff;
+      |                    ~~~~~~^~~ ~
+./motors.h(66): warning: implicit conversion turns floating-point number into integer: 'float' to 'uint32_t' (aka 'unsigned int') [-Wfloat-conversion]
+   66 |         TPM0_C2V = TPM0->MOD * coeff;
+      |                  ~ ~~~~~~~~~~^~~~~~~
+./motors.h(66): warning: implicit conversion from 'volatile uint32_t' (aka 'volatile unsigned int') to 'float' may lose precision [-Wimplicit-int-float-conversion]
+   66 |         TPM0_C2V = TPM0->MOD * coeff;
+      |                    ~~~~~~^~~ ~
+./motors.h(62): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+   62 |         float coeff = (float) power / 100.0f;
+      |               ^
+./motors.h(79): warning: implicit conversion turns floating-point number into integer: 'float' to 'uint32_t' (aka 'unsigned int') [-Wfloat-conversion]
+   79 |         TPM0_C0V =  TPM0->MOD * coeff;
+      |                  ~  ~~~~~~~~~~^~~~~~~
+./motors.h(79): warning: implicit conversion from 'volatile uint32_t' (aka 'volatile unsigned int') to 'float' may lose precision [-Wimplicit-int-float-conversion]
+   79 |         TPM0_C0V =  TPM0->MOD * coeff;
+      |                     ~~~~~~^~~ ~
+./motors.h(82): warning: implicit conversion turns floating-point number into integer: 'float' to 'uint32_t' (aka 'unsigned int') [-Wfloat-conversion]
+   82 |         TPM0_C3V = TPM0->MOD * coeff;
+      |                  ~ ~~~~~~~~~~^~~~~~~
+./motors.h(82): warning: implicit conversion from 'volatile uint32_t' (aka 'volatile unsigned int') to 'float' may lose precision [-Wimplicit-int-float-conversion]
+   82 |         TPM0_C3V = TPM0->MOD * coeff;
+      |                    ~~~~~~^~~ ~
+./motors.h(77): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
+   77 |         float coeff = (float) power / 100.0f;
+      |               ^
+main.c(9): warning: In file included from...
+./audio.h(91): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
    91 |         TPM1->MOD = FREQUENCY_TO_MOD(songConnEst[i] * 4);       // play at music note frequency
       |                   ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-main.c(16): note: expanded from macro 'FREQUENCY_TO_MOD'
-   16 | #define FREQUENCY_TO_MOD(x) (375000 / (x))
+./audio.h(12): note: expanded from macro 'FREQUENCY_TO_MOD'
+   12 | #define FREQUENCY_TO_MOD(x) (375000 / (x))
       |                              ~~~~~~~^~~~~
-main.c(92): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
+./audio.h(92): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
    92 |         TPM1_C0V = FREQUENCY_TO_MOD(songConnEst[i] * 4) / 2;    // mantain 50% duty cycle
       |                  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
-main.c(88): warning: no previous prototype for function 'audioConnEst' [-Wmissing-prototypes]
-   88 | void audioConnEst(void)
-      |      ^
-main.c(88): note: declare 'static' if the function is not intended to be used outside of this translation unit
-   88 | void audioConnEst(void)
-      | ^
-      | static 
-main.c(101): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
-  101 |   TPM1->MOD = FREQUENCY_TO_MOD(songMain[note] * 4);
+./audio.h(102): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
+  102 |   TPM1->MOD = FREQUENCY_TO_MOD(songMain[note] * 4);
       |             ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-main.c(16): note: expanded from macro 'FREQUENCY_TO_MOD'
-   16 | #define FREQUENCY_TO_MOD(x) (375000 / (x))
+./audio.h(12): note: expanded from macro 'FREQUENCY_TO_MOD'
+   12 | #define FREQUENCY_TO_MOD(x) (375000 / (x))
       |                              ~~~~~~~^~~~~
-main.c(102): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
-  102 |   TPM1_C0V = FREQUENCY_TO_MOD(songMain[note] * 4) / 2;
+./audio.h(103): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
+  103 |   TPM1_C0V = FREQUENCY_TO_MOD(songMain[note] * 4) / 2;
       |            ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
-main.c(99): warning: no previous prototype for function 'audioSong' [-Wmissing-prototypes]
-   99 | void audioSong(int note)
-      |      ^
-main.c(99): note: declare 'static' if the function is not intended to be used outside of this translation unit
-   99 | void audioSong(int note)
-      | ^
-      | static 
-main.c(109): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
-  109 |         TPM1->MOD = FREQUENCY_TO_MOD(songRunFin[i] * 4);       // play at music note frequency
+./audio.h(111): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
+  111 |         TPM1->MOD = FREQUENCY_TO_MOD(songRunFin[i] * 4);       // play at music note frequency
       |                   ~ ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-main.c(16): note: expanded from macro 'FREQUENCY_TO_MOD'
-   16 | #define FREQUENCY_TO_MOD(x) (375000 / (x))
+./audio.h(12): note: expanded from macro 'FREQUENCY_TO_MOD'
+   12 | #define FREQUENCY_TO_MOD(x) (375000 / (x))
       |                              ~~~~~~~^~~~~
-main.c(110): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
-  110 |         TPM1_C0V = FREQUENCY_TO_MOD(songRunFin[i] * 4) / 2;    // mantain 50% duty cycle
+./audio.h(112): warning: implicit conversion changes signedness: 'int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
+  112 |         TPM1_C0V = FREQUENCY_TO_MOD(songRunFin[i] * 4) / 2;    // mantain 50% duty cycle
       |                  ~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
-main.c(106): warning: no previous prototype for function 'audioRunFin' [-Wmissing-prototypes]
-  106 | void audioRunFin(void)
-      |      ^
-main.c(106): note: declare 'static' if the function is not intended to be used outside of this translation unit
-  106 | void audioRunFin(void)
-      | ^
-      | static 
-main.c(144): warning: implicit conversion turns floating-point number into integer: 'float' to 'uint32_t' (aka 'unsigned int') [-Wfloat-conversion]
-  144 |         TPM0_C0V = TPM0->MOD * coeff;
-      |                  ~ ~~~~~~~~~~^~~~~~~
-main.c(144): warning: implicit conversion from 'volatile uint32_t' (aka 'volatile unsigned int') to 'float' may lose precision [-Wimplicit-int-float-conversion]
-  144 |         TPM0_C0V = TPM0->MOD * coeff;
-      |                    ~~~~~~^~~ ~
-main.c(146): warning: implicit conversion turns floating-point number into integer: 'float' to 'uint32_t' (aka 'unsigned int') [-Wfloat-conversion]
-  146 |         TPM0_C2V = TPM0->MOD * coeff;
-      |                  ~ ~~~~~~~~~~^~~~~~~
-main.c(146): warning: implicit conversion from 'volatile uint32_t' (aka 'volatile unsigned int') to 'float' may lose precision [-Wimplicit-int-float-conversion]
-  146 |         TPM0_C2V = TPM0->MOD * coeff;
-      |                    ~~~~~~^~~ ~
-main.c(142): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
-  142 |         float coeff = (float) power / 100.0f;
-      |               ^
-main.c(160): warning: implicit conversion turns floating-point number into integer: 'float' to 'uint32_t' (aka 'unsigned int') [-Wfloat-conversion]
-  160 |         TPM0_C1V = TPM0->MOD * coeff;
-      |                  ~ ~~~~~~~~~~^~~~~~~
-main.c(160): warning: implicit conversion from 'volatile uint32_t' (aka 'volatile unsigned int') to 'float' may lose precision [-Wimplicit-int-float-conversion]
-  160 |         TPM0_C1V = TPM0->MOD * coeff;
-      |                    ~~~~~~^~~ ~
-main.c(162): warning: implicit conversion turns floating-point number into integer: 'float' to 'uint32_t' (aka 'unsigned int') [-Wfloat-conversion]
-  162 |         TPM0_C3V = TPM0->MOD * coeff;
-      |                  ~ ~~~~~~~~~~^~~~~~~
-main.c(162): warning: implicit conversion from 'volatile uint32_t' (aka 'volatile unsigned int') to 'float' may lose precision [-Wimplicit-int-float-conversion]
-  162 |         TPM0_C3V = TPM0->MOD * coeff;
-      |                    ~~~~~~^~~ ~
-main.c(157): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
-  157 |         float coeff = (float) power / 100.0f;
-      |               ^
-main.c(175): warning: implicit conversion turns floating-point number into integer: 'float' to 'uint32_t' (aka 'unsigned int') [-Wfloat-conversion]
-  175 |         TPM0_C1V = TPM0->MOD * coeff;
-      |                  ~ ~~~~~~~~~~^~~~~~~
-main.c(175): warning: implicit conversion from 'volatile uint32_t' (aka 'volatile unsigned int') to 'float' may lose precision [-Wimplicit-int-float-conversion]
-  175 |         TPM0_C1V = TPM0->MOD * coeff;
-      |                    ~~~~~~^~~ ~
-main.c(176): warning: implicit conversion turns floating-point number into integer: 'float' to 'uint32_t' (aka 'unsigned int') [-Wfloat-conversion]
-  176 |         TPM0_C2V = TPM0->MOD * coeff;
-      |                  ~ ~~~~~~~~~~^~~~~~~
-main.c(176): warning: implicit conversion from 'volatile uint32_t' (aka 'volatile unsigned int') to 'float' may lose precision [-Wimplicit-int-float-conversion]
-  176 |         TPM0_C2V = TPM0->MOD * coeff;
-      |                    ~~~~~~^~~ ~
-main.c(172): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
-  172 |         float coeff = (float) power / 100.0f;
-      |               ^
-main.c(189): warning: implicit conversion turns floating-point number into integer: 'float' to 'uint32_t' (aka 'unsigned int') [-Wfloat-conversion]
-  189 |         TPM0_C0V = TPM0->MOD * coeff;
-      |                  ~ ~~~~~~~~~~^~~~~~~
-main.c(189): warning: implicit conversion from 'volatile uint32_t' (aka 'volatile unsigned int') to 'float' may lose precision [-Wimplicit-int-float-conversion]
-  189 |         TPM0_C0V = TPM0->MOD * coeff;
-      |                    ~~~~~~^~~ ~
-main.c(192): warning: implicit conversion turns floating-point number into integer: 'float' to 'uint32_t' (aka 'unsigned int') [-Wfloat-conversion]
-  192 |         TPM0_C3V = TPM0->MOD * coeff;
-      |                  ~ ~~~~~~~~~~^~~~~~~
-main.c(192): warning: implicit conversion from 'volatile uint32_t' (aka 'volatile unsigned int') to 'float' may lose precision [-Wimplicit-int-float-conversion]
-  192 |         TPM0_C3V = TPM0->MOD * coeff;
-      |                    ~~~~~~^~~ ~
-main.c(187): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
-  187 |         float coeff = (float) power / 100.0f;
-      |               ^
-main.c(255): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
-  255 |         PORTE->PCR[UART_TX_PORTE23] |= (0b1010 << 16);
-      |                                         ^
-main.c(240): warning: no previous prototype for function 'InitUART2' [-Wmissing-prototypes]
-  240 | void InitUART2(uint32_t baud_rate)
-      |      ^
-main.c(240): note: declare 'static' if the function is not intended to be used outside of this translation unit
-  240 | void InitUART2(uint32_t baud_rate)
-      | ^
-      | static 
-main.c(285): warning: declaration shadows a variable in the global scope [-Wshadow]
-  285 | void UART2_Transmit_Poll(uint8_t data)
-      |                                  ^
-main.c(118): note: previous declaration is here
-  118 | static volatile uint8_t data;
-      |                         ^
-main.c(285): warning: no previous prototype for function 'UART2_Transmit_Poll' [-Wmissing-prototypes]
-  285 | void UART2_Transmit_Poll(uint8_t data)
-      |      ^
-main.c(285): note: declare 'static' if the function is not intended to be used outside of this translation unit
-  285 | void UART2_Transmit_Poll(uint8_t data)
-      | ^
-      | static 
-main.c(292): warning: no previous prototype for function 'UART2_Receive_Poll' [-Wmissing-prototypes]
-  292 | uint8_t UART2_Receive_Poll(void)
-      |         ^
-main.c(292): note: declare 'static' if the function is not intended to be used outside of this translation unit
-  292 | uint8_t UART2_Receive_Poll(void)
-      | ^
-      | static 
-main.c(300): warning: no previous prototype for function 'UART2_IRQHandler' [-Wmissing-prototypes]
-  300 | void UART2_IRQHandler(void) {
-      |      ^
-main.c(300): note: declare 'static' if the function is not intended to be used outside of this translation unit
-  300 | void UART2_IRQHandler(void) {
-      | ^
-      | static 
-main.c(313): warning: no previous prototype for function 'music' [-Wmissing-prototypes]
-  313 | void music (void) {
-      |      ^
-main.c(313): note: declare 'static' if the function is not intended to be used outside of this translation unit
-  313 | void music (void) {
-      | ^
-      | static 
-main.c(313): warning: function 'music' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
-  313 | void music (void) {
+./audio.h(122): warning: implicit conversion changes signedness: 'volatile int' to 'uint32_t' (aka 'unsigned int') [-Wsign-conversion]
+  122 |     audioSong(currNote);
+      |     ~~~~~~~~~ ^~~~~~~~
+./audio.h(125): warning: no newline at end of file [-Wnewline-eof]
+  125 | }
+      |  ^
+./audio.h(120): warning: unused parameter 'argument' [-Wunused-parameter]
+  120 | void music (void *argument) {
       |                   ^
-main.c(319): warning: no previous extern declaration for non-static variable 'systemTicks' [-Wmissing-variable-declarations]
-  319 | volatile uint32_t systemTicks = 0;
-      |                   ^
-main.c(319): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-  319 | volatile uint32_t systemTicks = 0;
-      |          ^
-main.c(322): warning: no previous prototype for function 'SysTick_Handler' [-Wmissing-prototypes]
-  322 | void SysTick_Handler(void) {
+./audio.h(120): warning: function 'music' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
+  120 | void music (void *argument) {
+      |                             ^
+main.c(10): warning: In file included from...
+./led.h(14): warning: no previous prototype for function 'delay1' [-Wmissing-prototypes]
+   14 | void delay1(volatile uint32_t ms) {
       |      ^
-main.c(322): note: declare 'static' if the function is not intended to be used outside of this translation unit
-  322 | void SysTick_Handler(void) {
+./led.h(14): note: declare 'static' if the function is not intended to be used outside of this translation unit
+   14 | void delay1(volatile uint32_t ms) {
       | ^
       | static 
-main.c(327): warning: no previous prototype for function 'SysTick_Init' [-Wmissing-prototypes]
-  327 | void SysTick_Init(void) {
-      |      ^
-main.c(327): note: declare 'static' if the function is not intended to be used outside of this translation unit
-  327 | void SysTick_Init(void) {
-      | ^
-      | static 
-main.c(332): warning: no previous prototype for function 'millis' [-Wmissing-prototypes]
-  332 | uint32_t millis(void) {
-      |          ^
-main.c(332): note: declare 'static' if the function is not intended to be used outside of this translation unit
-  332 | uint32_t millis(void) {
-      | ^
-      | static 
-main.c(360): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
-  360 |                 if(data == 0b00110001) {
+./led.h(67): warning: unused parameter 'argument' [-Wunused-parameter]
+   67 | void flashGreen(void *argument) {
+      |                       ^
+./led.h(67): warning: function 'flashGreen' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
+   67 | void flashGreen(void *argument) {
+      |                                 ^
+./led.h(121): warning: no newline at end of file [-Wnewline-eof]
+  121 | }
+      |  ^
+./led.h(112): warning: unused parameter 'argument' [-Wunused-parameter]
+  112 | void RedBlink(void *argument) {
+      |                     ^
+./led.h(112): warning: function 'RedBlink' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
+  112 | void RedBlink(void *argument) {
+      |                               ^
+main.c(27): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+   27 |                 if(data == ESP32_MOVE_FORWARD) {
       |                            ^
-main.c(364): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
-  364 |                 else if(data == 0b00110010) {
+./constants.h(52): note: expanded from macro 'ESP32_MOVE_FORWARD'
+   52 | #define ESP32_MOVE_FORWARD 0b00110001U
+      |                            ^
+main.c(30): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+   30 |                 else if(data == ESP32_MOVE_FORWARD) {
       |                                 ^
-main.c(368): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
-  368 |                 else if(data == 0b00110011) {
+./constants.h(52): note: expanded from macro 'ESP32_MOVE_FORWARD'
+   52 | #define ESP32_MOVE_FORWARD 0b00110001U
+      |                            ^
+main.c(33): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+   33 |                 else if(data == ESP32_TURN_RIGHT) {
       |                                 ^
-main.c(372): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
-  372 |                 else if(data == 0b00110100) {
+./constants.h(55): note: expanded from macro 'ESP32_TURN_RIGHT'
+   55 | #define ESP32_TURN_RIGHT 0b00110100U
+      |                          ^
+main.c(36): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+   36 |                 else if(data == ESP32_TURN_LEFT) {
       |                                 ^
-main.c(343): warning: mixing declarations and code is incompatible with standards before C99 [-Wdeclaration-after-statement]
-  343 |         uint32_t lastNoteTime = 0;
-      |                  ^
-main.c(345): warning: variable 'counter' set but not used [-Wunused-but-set-variable]
-  345 |         int counter = 0;
-      |             ^
-main.c(91): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+./constants.h(54): note: expanded from macro 'ESP32_TURN_LEFT'
+   54 | #define ESP32_TURN_LEFT 0b00110011U
+      |                         ^
+main.c(23): warning: unused parameter 'argument' [-Wunused-parameter]
+   23 | void tBrain(void *argument){
+      |                   ^
+main.c(23): warning: function 'tBrain' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
+   23 | void tBrain(void *argument){
+      |                            ^
+main.c(7): warning: In file included from...
+./uart.h(23): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   23 |         PORTE->PCR[UART_RX] = 0;
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4461): note: expanded from macro 'PORTE'
+ 4461 | #define PORTE                                    ((PORT_Type *)PORTE_BASE)
+      |                                                  ^
+main.c(7): warning: In file included from...
+./uart.h(25): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   25 |         PORTE->PCR[UART_TX] &= ~PORT_PCR_MUX_MASK;
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4461): note: expanded from macro 'PORTE'
+ 4461 | #define PORTE                                    ((PORT_Type *)PORTE_BASE)
+      |                                                  ^
+main.c(7): warning: In file included from...
+./uart.h(26): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   26 |         PORTE->PCR[UART_TX] |= PORT_PCR_MUX(4);
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4461): note: expanded from macro 'PORTE'
+ 4461 | #define PORTE                                    ((PORT_Type *)PORTE_BASE)
+      |                                                  ^
+main.c(7): warning: In file included from...
+./uart.h(27): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   27 |         PORTE->PCR[UART_RX] &= ~PORT_PCR_MUX_MASK;
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4461): note: expanded from macro 'PORTE'
+ 4461 | #define PORTE                                    ((PORT_Type *)PORTE_BASE)
+      |                                                  ^
+main.c(7): warning: In file included from...
+./uart.h(28): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   28 |         PORTE->PCR[UART_RX] |= PORT_PCR_MUX(4);
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4461): note: expanded from macro 'PORTE'
+ 4461 | #define PORTE                                    ((PORT_Type *)PORTE_BASE)
+      |                                                  ^
+main.c(7): warning: In file included from...
+./uart.h(29): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   29 |         PORTE->PCR[UART_RX] |= (0b1011 << 16);
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4461): note: expanded from macro 'PORTE'
+ 4461 | #define PORTE                                    ((PORT_Type *)PORTE_BASE)
+      |                                                  ^
+main.c(8): warning: In file included from...
+./motors.h(20): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   20 |         TPM0_C1V = 0;
+      |         ^~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6290): note: expanded from macro 'TPM0_C1V'
+ 6290 | #define TPM0_C1V                                 TPM_CnV_REG(TPM0,1)
+      |                                                  ^~~~~~~~~~~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
+ 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
+      |                                                   ^~~~~~~~~~~~~~~~
+main.c(8): warning: In file included from...
+./motors.h(21): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   21 |         TPM0_C2V = 0;
+      |         ^~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6292): note: expanded from macro 'TPM0_C2V'
+ 6292 | #define TPM0_C2V                                 TPM_CnV_REG(TPM0,2)
+      |                                                  ^~~~~~~~~~~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
+ 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
+      |                                                   ^~~~~~~~~~~~~~~~
+main.c(8): warning: In file included from...
+./motors.h(22): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   22 |         TPM0_C3V = 0;
+      |         ^~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6294): note: expanded from macro 'TPM0_C3V'
+ 6294 | #define TPM0_C3V                                 TPM_CnV_REG(TPM0,3)
+      |                                                  ^~~~~~~~~~~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
+ 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
+      |                                                   ^~~~~~~~~~~~~~~~
+main.c(8): warning: In file included from...
+./motors.h(35): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   35 |         TPM0_C1V = 0;
+      |         ^~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6290): note: expanded from macro 'TPM0_C1V'
+ 6290 | #define TPM0_C1V                                 TPM_CnV_REG(TPM0,1)
+      |                                                  ^~~~~~~~~~~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
+ 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
+      |                                                   ^~~~~~~~~~~~~~~~
+main.c(8): warning: In file included from...
+./motors.h(36): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   36 |         TPM0_C2V = TPM0->MOD * coeff;
+      |         ^~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6292): note: expanded from macro 'TPM0_C2V'
+ 6292 | #define TPM0_C2V                                 TPM_CnV_REG(TPM0,2)
+      |                                                  ^~~~~~~~~~~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
+ 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
+      |                                                   ^~~~~~~~~~~~~~~~
+main.c(8): warning: In file included from...
+./motors.h(37): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   37 |         TPM0_C3V = 0;
+      |         ^~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6294): note: expanded from macro 'TPM0_C3V'
+ 6294 | #define TPM0_C3V                                 TPM_CnV_REG(TPM0,3)
+      |                                                  ^~~~~~~~~~~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
+ 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
+      |                                                   ^~~~~~~~~~~~~~~~
+main.c(8): warning: In file included from...
+./motors.h(50): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   50 |         TPM0_C1V = TPM0->MOD * coeff;
+      |         ^~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6290): note: expanded from macro 'TPM0_C1V'
+ 6290 | #define TPM0_C1V                                 TPM_CnV_REG(TPM0,1)
+      |                                                  ^~~~~~~~~~~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
+ 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
+      |                                                   ^~~~~~~~~~~~~~~~
+main.c(8): warning: In file included from...
+./motors.h(51): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   51 |         TPM0_C2V = 0;
+      |         ^~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6292): note: expanded from macro 'TPM0_C2V'
+ 6292 | #define TPM0_C2V                                 TPM_CnV_REG(TPM0,2)
+      |                                                  ^~~~~~~~~~~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
+ 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
+      |                                                   ^~~~~~~~~~~~~~~~
+main.c(8): warning: In file included from...
+./motors.h(52): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   52 |         TPM0_C3V = TPM0->MOD * coeff;
+      |         ^~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6294): note: expanded from macro 'TPM0_C3V'
+ 6294 | #define TPM0_C3V                                 TPM_CnV_REG(TPM0,3)
+      |                                                  ^~~~~~~~~~~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
+ 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
+      |                                                   ^~~~~~~~~~~~~~~~
+main.c(8): warning: In file included from...
+./motors.h(65): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   65 |         TPM0_C1V = TPM0->MOD * coeff;
+      |         ^~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6290): note: expanded from macro 'TPM0_C1V'
+ 6290 | #define TPM0_C1V                                 TPM_CnV_REG(TPM0,1)
+      |                                                  ^~~~~~~~~~~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
+ 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
+      |                                                   ^~~~~~~~~~~~~~~~
+main.c(8): warning: In file included from...
+./motors.h(66): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   66 |         TPM0_C2V = TPM0->MOD * coeff;
+      |         ^~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6292): note: expanded from macro 'TPM0_C2V'
+ 6292 | #define TPM0_C2V                                 TPM_CnV_REG(TPM0,2)
+      |                                                  ^~~~~~~~~~~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
+ 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
+      |                                                   ^~~~~~~~~~~~~~~~
+main.c(8): warning: In file included from...
+./motors.h(67): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   67 |         TPM0_C3V = 0;
+      |         ^~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6294): note: expanded from macro 'TPM0_C3V'
+ 6294 | #define TPM0_C3V                                 TPM_CnV_REG(TPM0,3)
+      |                                                  ^~~~~~~~~~~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
+ 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
+      |                                                   ^~~~~~~~~~~~~~~~
+main.c(8): warning: In file included from...
+./motors.h(80): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   80 |         TPM0_C1V = 0;
+      |         ^~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6290): note: expanded from macro 'TPM0_C1V'
+ 6290 | #define TPM0_C1V                                 TPM_CnV_REG(TPM0,1)
+      |                                                  ^~~~~~~~~~~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
+ 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
+      |                                                   ^~~~~~~~~~~~~~~~
+main.c(8): warning: In file included from...
+./motors.h(81): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   81 |         TPM0_C2V = 0;
+      |         ^~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6292): note: expanded from macro 'TPM0_C2V'
+ 6292 | #define TPM0_C2V                                 TPM_CnV_REG(TPM0,2)
+      |                                                  ^~~~~~~~~~~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
+ 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
+      |                                                   ^~~~~~~~~~~~~~~~
+main.c(8): warning: In file included from...
+./motors.h(82): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   82 |         TPM0_C3V = TPM0->MOD * coeff;
+      |         ^~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6294): note: expanded from macro 'TPM0_C3V'
+ 6294 | #define TPM0_C3V                                 TPM_CnV_REG(TPM0,3)
+      |                                                  ^~~~~~~~~~~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
+ 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
+      |                                                   ^~~~~~~~~~~~~~~~
+main.c(8): warning: In file included from...
+./motors.h(94): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   94 |         PORTA->PCR[LEFT_MOTOR_RVS] &= ~PORT_PCR_MUX_MASK;
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4441): note: expanded from macro 'PORTA'
+ 4441 | #define PORTA                                    ((PORT_Type *)PORTA_BASE)
+      |                                                  ^
+main.c(8): warning: In file included from...
+./motors.h(95): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   95 |         PORTA->PCR[LEFT_MOTOR_RVS] |= PORT_PCR_MUX(3);
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4441): note: expanded from macro 'PORTA'
+ 4441 | #define PORTA                                    ((PORT_Type *)PORTA_BASE)
+      |                                                  ^
+main.c(8): warning: In file included from...
+./motors.h(96): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   96 |         PORTD->PCR[RIGHT_MOTOR_FWD] &= ~PORT_PCR_MUX_MASK;
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4456): note: expanded from macro 'PORTD'
+ 4456 | #define PORTD                                    ((PORT_Type *)PORTD_BASE)
+      |                                                  ^
+main.c(8): warning: In file included from...
+./motors.h(97): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   97 |         PORTD->PCR[RIGHT_MOTOR_FWD] |= PORT_PCR_MUX(4);
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4456): note: expanded from macro 'PORTD'
+ 4456 | #define PORTD                                    ((PORT_Type *)PORTD_BASE)
+      |                                                  ^
+main.c(8): warning: In file included from...
+./motors.h(98): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   98 |         PORTD->PCR[RIGHT_MOTOR_RVS] &= ~PORT_PCR_MUX_MASK;
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4456): note: expanded from macro 'PORTD'
+ 4456 | #define PORTD                                    ((PORT_Type *)PORTD_BASE)
+      |                                                  ^
+main.c(8): warning: In file included from...
+./motors.h(99): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   99 |         PORTD->PCR[RIGHT_MOTOR_RVS] |= PORT_PCR_MUX(4);
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4456): note: expanded from macro 'PORTD'
+ 4456 | #define PORTD                                    ((PORT_Type *)PORTD_BASE)
+      |                                                  ^
+main.c(8): warning: In file included from...
+./motors.h(120): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  120 |         TPM0_C1SC &= ~((TPM_CnSC_ELSB_MASK) | (TPM_CnSC_ELSA_MASK) | (TPM_CnSC_MSB_MASK) | (TPM_CnSC_MSA_MASK));
+      |         ^~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6289): note: expanded from macro 'TPM0_C1SC'
+ 6289 | #define TPM0_C1SC                                TPM_CnSC_REG(TPM0,1)
+      |                                                  ^~~~~~~~~~~~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6095): note: expanded from macro 'TPM_CnSC_REG'
+ 6095 | #define TPM_CnSC_REG(base,index)                 ((base)->CONTROLS[index].CnSC)
+      |                                                   ^~~~~~~~~~~~~~~~
+main.c(8): warning: In file included from...
+./motors.h(121): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  121 |         TPM0_C1SC |= (TPM_CnSC_ELSB(1)) | (TPM_CnSC_MSB(1));
+      |         ^~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6289): note: expanded from macro 'TPM0_C1SC'
+ 6289 | #define TPM0_C1SC                                TPM_CnSC_REG(TPM0,1)
+      |                                                  ^~~~~~~~~~~~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6095): note: expanded from macro 'TPM_CnSC_REG'
+ 6095 | #define TPM_CnSC_REG(base,index)                 ((base)->CONTROLS[index].CnSC)
+      |                                                   ^~~~~~~~~~~~~~~~
+main.c(8): warning: In file included from...
+./motors.h(122): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  122 |         TPM0_C2SC &= ~((TPM_CnSC_ELSB_MASK) | (TPM_CnSC_ELSA_MASK) | (TPM_CnSC_MSB_MASK) | (TPM_CnSC_MSA_MASK));
+      |         ^~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6291): note: expanded from macro 'TPM0_C2SC'
+ 6291 | #define TPM0_C2SC                                TPM_CnSC_REG(TPM0,2)
+      |                                                  ^~~~~~~~~~~~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6095): note: expanded from macro 'TPM_CnSC_REG'
+ 6095 | #define TPM_CnSC_REG(base,index)                 ((base)->CONTROLS[index].CnSC)
+      |                                                   ^~~~~~~~~~~~~~~~
+main.c(8): warning: In file included from...
+./motors.h(123): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  123 |         TPM0_C2SC |= (TPM_CnSC_ELSB(1)) | (TPM_CnSC_MSB(1));
+      |         ^~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6291): note: expanded from macro 'TPM0_C2SC'
+ 6291 | #define TPM0_C2SC                                TPM_CnSC_REG(TPM0,2)
+      |                                                  ^~~~~~~~~~~~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6095): note: expanded from macro 'TPM_CnSC_REG'
+ 6095 | #define TPM_CnSC_REG(base,index)                 ((base)->CONTROLS[index].CnSC)
+      |                                                   ^~~~~~~~~~~~~~~~
+main.c(8): warning: In file included from...
+./motors.h(124): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  124 |         TPM0_C3SC &= ~((TPM_CnSC_ELSB_MASK) | (TPM_CnSC_ELSA_MASK) | (TPM_CnSC_MSB_MASK) | (TPM_CnSC_MSA_MASK));
+      |         ^~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6293): note: expanded from macro 'TPM0_C3SC'
+ 6293 | #define TPM0_C3SC                                TPM_CnSC_REG(TPM0,3)
+      |                                                  ^~~~~~~~~~~~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6095): note: expanded from macro 'TPM_CnSC_REG'
+ 6095 | #define TPM_CnSC_REG(base,index)                 ((base)->CONTROLS[index].CnSC)
+      |                                                   ^~~~~~~~~~~~~~~~
+main.c(8): warning: In file included from...
+./motors.h(125): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  125 |         TPM0_C3SC |= (TPM_CnSC_ELSB(1)) | (TPM_CnSC_MSB(1));
+      |         ^~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6293): note: expanded from macro 'TPM0_C3SC'
+ 6293 | #define TPM0_C3SC                                TPM_CnSC_REG(TPM0,3)
+      |                                                  ^~~~~~~~~~~~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6095): note: expanded from macro 'TPM_CnSC_REG'
+ 6095 | #define TPM_CnSC_REG(base,index)                 ((base)->CONTROLS[index].CnSC)
+      |                                                   ^~~~~~~~~~~~~~~~
+main.c(9): warning: In file included from...
+./audio.h(91): warning: unsafe buffer access [-Wunsafe-buffer-usage]
    91 |         TPM1->MOD = FREQUENCY_TO_MOD(songConnEst[i] * 4);       // play at music note frequency
       |                                      ^~~~~~~~~~~
-main.c(16): note: expanded from macro 'FREQUENCY_TO_MOD'
-   16 | #define FREQUENCY_TO_MOD(x) (375000 / (x))
+./audio.h(12): note: expanded from macro 'FREQUENCY_TO_MOD'
+   12 | #define FREQUENCY_TO_MOD(x) (375000 / (x))
       |                                        ^
-main.c(92): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+./audio.h(92): warning: unsafe buffer access [-Wunsafe-buffer-usage]
    92 |         TPM1_C0V = FREQUENCY_TO_MOD(songConnEst[i] * 4) / 2;    // mantain 50% duty cycle
       |                                     ^~~~~~~~~~~
-main.c(16): note: expanded from macro 'FREQUENCY_TO_MOD'
-   16 | #define FREQUENCY_TO_MOD(x) (375000 / (x))
+./audio.h(12): note: expanded from macro 'FREQUENCY_TO_MOD'
+   12 | #define FREQUENCY_TO_MOD(x) (375000 / (x))
       |                                        ^
-main.c(101): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  101 |   TPM1->MOD = FREQUENCY_TO_MOD(songMain[note] * 4);
+./audio.h(102): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  102 |   TPM1->MOD = FREQUENCY_TO_MOD(songMain[note] * 4);
       |                                ^~~~~~~~
-main.c(16): note: expanded from macro 'FREQUENCY_TO_MOD'
-   16 | #define FREQUENCY_TO_MOD(x) (375000 / (x))
+./audio.h(12): note: expanded from macro 'FREQUENCY_TO_MOD'
+   12 | #define FREQUENCY_TO_MOD(x) (375000 / (x))
       |                                        ^
-main.c(102): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  102 |   TPM1_C0V = FREQUENCY_TO_MOD(songMain[note] * 4) / 2;
+./audio.h(103): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  103 |   TPM1_C0V = FREQUENCY_TO_MOD(songMain[note] * 4) / 2;
       |                               ^~~~~~~~
-main.c(16): note: expanded from macro 'FREQUENCY_TO_MOD'
-   16 | #define FREQUENCY_TO_MOD(x) (375000 / (x))
+./audio.h(12): note: expanded from macro 'FREQUENCY_TO_MOD'
+   12 | #define FREQUENCY_TO_MOD(x) (375000 / (x))
       |                                        ^
-main.c(109): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  109 |         TPM1->MOD = FREQUENCY_TO_MOD(songRunFin[i] * 4);       // play at music note frequency
+./audio.h(111): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  111 |         TPM1->MOD = FREQUENCY_TO_MOD(songRunFin[i] * 4);       // play at music note frequency
       |                                      ^~~~~~~~~~
-main.c(16): note: expanded from macro 'FREQUENCY_TO_MOD'
-   16 | #define FREQUENCY_TO_MOD(x) (375000 / (x))
+./audio.h(12): note: expanded from macro 'FREQUENCY_TO_MOD'
+   12 | #define FREQUENCY_TO_MOD(x) (375000 / (x))
       |                                        ^
-main.c(110): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  110 |         TPM1_C0V = FREQUENCY_TO_MOD(songRunFin[i] * 4) / 2;    // mantain 50% duty cycle
+./audio.h(112): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+  112 |         TPM1_C0V = FREQUENCY_TO_MOD(songRunFin[i] * 4) / 2;    // mantain 50% duty cycle
       |                                     ^~~~~~~~~~
-main.c(16): note: expanded from macro 'FREQUENCY_TO_MOD'
-   16 | #define FREQUENCY_TO_MOD(x) (375000 / (x))
+./audio.h(12): note: expanded from macro 'FREQUENCY_TO_MOD'
+   12 | #define FREQUENCY_TO_MOD(x) (375000 / (x))
       |                                        ^
-main.c(130): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  130 |         TPM0_C1V = 0;
-      |         ^~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6290): note: expanded from macro 'TPM0_C1V'
- 6290 | #define TPM0_C1V                                 TPM_CnV_REG(TPM0,1)
-      |                                                  ^~~~~~~~~~~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
- 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
-      |                                                   ^~~~~~~~~~~~~~~~
-main.c(131): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  131 |         TPM0_C2V = 0;
-      |         ^~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6292): note: expanded from macro 'TPM0_C2V'
- 6292 | #define TPM0_C2V                                 TPM_CnV_REG(TPM0,2)
-      |                                                  ^~~~~~~~~~~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
- 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
-      |                                                   ^~~~~~~~~~~~~~~~
-main.c(132): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  132 |         TPM0_C3V = 0;
-      |         ^~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6294): note: expanded from macro 'TPM0_C3V'
- 6294 | #define TPM0_C3V                                 TPM_CnV_REG(TPM0,3)
-      |                                                  ^~~~~~~~~~~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
- 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
-      |                                                   ^~~~~~~~~~~~~~~~
-main.c(145): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  145 |         TPM0_C1V = 0;
-      |         ^~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6290): note: expanded from macro 'TPM0_C1V'
- 6290 | #define TPM0_C1V                                 TPM_CnV_REG(TPM0,1)
-      |                                                  ^~~~~~~~~~~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
- 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
-      |                                                   ^~~~~~~~~~~~~~~~
-main.c(146): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  146 |         TPM0_C2V = TPM0->MOD * coeff;
-      |         ^~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6292): note: expanded from macro 'TPM0_C2V'
- 6292 | #define TPM0_C2V                                 TPM_CnV_REG(TPM0,2)
-      |                                                  ^~~~~~~~~~~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
- 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
-      |                                                   ^~~~~~~~~~~~~~~~
-main.c(147): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  147 |         TPM0_C3V = 0;
-      |         ^~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6294): note: expanded from macro 'TPM0_C3V'
- 6294 | #define TPM0_C3V                                 TPM_CnV_REG(TPM0,3)
-      |                                                  ^~~~~~~~~~~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
- 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
-      |                                                   ^~~~~~~~~~~~~~~~
-main.c(160): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  160 |         TPM0_C1V = TPM0->MOD * coeff;
-      |         ^~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6290): note: expanded from macro 'TPM0_C1V'
- 6290 | #define TPM0_C1V                                 TPM_CnV_REG(TPM0,1)
-      |                                                  ^~~~~~~~~~~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
- 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
-      |                                                   ^~~~~~~~~~~~~~~~
-main.c(161): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  161 |         TPM0_C2V = 0;
-      |         ^~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6292): note: expanded from macro 'TPM0_C2V'
- 6292 | #define TPM0_C2V                                 TPM_CnV_REG(TPM0,2)
-      |                                                  ^~~~~~~~~~~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
- 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
-      |                                                   ^~~~~~~~~~~~~~~~
-main.c(162): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  162 |         TPM0_C3V = TPM0->MOD * coeff;
-      |         ^~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6294): note: expanded from macro 'TPM0_C3V'
- 6294 | #define TPM0_C3V                                 TPM_CnV_REG(TPM0,3)
-      |                                                  ^~~~~~~~~~~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
- 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
-      |                                                   ^~~~~~~~~~~~~~~~
-main.c(175): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  175 |         TPM0_C1V = TPM0->MOD * coeff;
-      |         ^~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6290): note: expanded from macro 'TPM0_C1V'
- 6290 | #define TPM0_C1V                                 TPM_CnV_REG(TPM0,1)
-      |                                                  ^~~~~~~~~~~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
- 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
-      |                                                   ^~~~~~~~~~~~~~~~
-main.c(176): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  176 |         TPM0_C2V = TPM0->MOD * coeff;
-      |         ^~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6292): note: expanded from macro 'TPM0_C2V'
- 6292 | #define TPM0_C2V                                 TPM_CnV_REG(TPM0,2)
-      |                                                  ^~~~~~~~~~~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
- 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
-      |                                                   ^~~~~~~~~~~~~~~~
-main.c(177): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  177 |         TPM0_C3V = 0;
-      |         ^~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6294): note: expanded from macro 'TPM0_C3V'
- 6294 | #define TPM0_C3V                                 TPM_CnV_REG(TPM0,3)
-      |                                                  ^~~~~~~~~~~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
- 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
-      |                                                   ^~~~~~~~~~~~~~~~
-main.c(190): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  190 |         TPM0_C1V = 0;
-      |         ^~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6290): note: expanded from macro 'TPM0_C1V'
- 6290 | #define TPM0_C1V                                 TPM_CnV_REG(TPM0,1)
-      |                                                  ^~~~~~~~~~~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
- 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
-      |                                                   ^~~~~~~~~~~~~~~~
-main.c(191): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  191 |         TPM0_C2V = 0;
-      |         ^~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6292): note: expanded from macro 'TPM0_C2V'
- 6292 | #define TPM0_C2V                                 TPM_CnV_REG(TPM0,2)
-      |                                                  ^~~~~~~~~~~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
- 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
-      |                                                   ^~~~~~~~~~~~~~~~
-main.c(192): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  192 |         TPM0_C3V = TPM0->MOD * coeff;
-      |         ^~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6294): note: expanded from macro 'TPM0_C3V'
- 6294 | #define TPM0_C3V                                 TPM_CnV_REG(TPM0,3)
-      |                                                  ^~~~~~~~~~~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6097): note: expanded from macro 'TPM_CnV_REG'
- 6097 | #define TPM_CnV_REG(base,index)                  ((base)->CONTROLS[index].CnV)
-      |                                                   ^~~~~~~~~~~~~~~~
-main.c(204): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  204 |         PORTA->PCR[LEFT_MOTOR_RVS] &= ~PORT_PCR_MUX_MASK;
+main.c(10): warning: In file included from...
+./led.h(33): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   33 |         PORTD->PCR[RED_LED] &= ~PORT_PCR_MUX_MASK;
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4456): note: expanded from macro 'PORTD'
+ 4456 | #define PORTD                                    ((PORT_Type *)PORTD_BASE)
+      |                                                  ^
+main.c(10): warning: In file included from...
+./led.h(34): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   34 |         PORTD->PCR[RED_LED] |= PORT_PCR_MUX(1);
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4456): note: expanded from macro 'PORTD'
+ 4456 | #define PORTD                                    ((PORT_Type *)PORTD_BASE)
+      |                                                  ^
+main.c(10): warning: In file included from...
+./led.h(36): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   36 |         PORTC->PCR[GREEN_LED_1] &= ~PORT_PCR_MUX_MASK;
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4451): note: expanded from macro 'PORTC'
+ 4451 | #define PORTC                                    ((PORT_Type *)PORTC_BASE)
+      |                                                  ^
+main.c(10): warning: In file included from...
+./led.h(37): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   37 |         PORTC->PCR[GREEN_LED_1] |= PORT_PCR_MUX(1);
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4451): note: expanded from macro 'PORTC'
+ 4451 | #define PORTC                                    ((PORT_Type *)PORTC_BASE)
+      |                                                  ^
+main.c(10): warning: In file included from...
+./led.h(39): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   39 |         PORTC->PCR[GREEN_LED_2] &= ~PORT_PCR_MUX_MASK;
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4451): note: expanded from macro 'PORTC'
+ 4451 | #define PORTC                                    ((PORT_Type *)PORTC_BASE)
+      |                                                  ^
+main.c(10): warning: In file included from...
+./led.h(40): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   40 |         PORTC->PCR[GREEN_LED_2] |= PORT_PCR_MUX(1);
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4451): note: expanded from macro 'PORTC'
+ 4451 | #define PORTC                                    ((PORT_Type *)PORTC_BASE)
+      |                                                  ^
+main.c(10): warning: In file included from...
+./led.h(42): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   42 |         PORTC->PCR[GREEN_LED_3] &= ~PORT_PCR_MUX_MASK;
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4451): note: expanded from macro 'PORTC'
+ 4451 | #define PORTC                                    ((PORT_Type *)PORTC_BASE)
+      |                                                  ^
+main.c(10): warning: In file included from...
+./led.h(43): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   43 |         PORTC->PCR[GREEN_LED_3] |= PORT_PCR_MUX(1);
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4451): note: expanded from macro 'PORTC'
+ 4451 | #define PORTC                                    ((PORT_Type *)PORTC_BASE)
+      |                                                  ^
+main.c(10): warning: In file included from...
+./led.h(45): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   45 |         PORTC->PCR[GREEN_LED_4] &= ~PORT_PCR_MUX_MASK;
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4451): note: expanded from macro 'PORTC'
+ 4451 | #define PORTC                                    ((PORT_Type *)PORTC_BASE)
+      |                                                  ^
+main.c(10): warning: In file included from...
+./led.h(46): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   46 |         PORTC->PCR[GREEN_LED_4] |= PORT_PCR_MUX(1);
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4451): note: expanded from macro 'PORTC'
+ 4451 | #define PORTC                                    ((PORT_Type *)PORTC_BASE)
+      |                                                  ^
+main.c(10): warning: In file included from...
+./led.h(48): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   48 |         PORTA->PCR[GREEN_LED_5] &= ~PORT_PCR_MUX_MASK;
       |         ^~~~~~~~~~
 C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4441): note: expanded from macro 'PORTA'
  4441 | #define PORTA                                    ((PORT_Type *)PORTA_BASE)
       |                                                  ^
-main.c(205): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  205 |         PORTA->PCR[LEFT_MOTOR_RVS] |= PORT_PCR_MUX(3);
+main.c(10): warning: In file included from...
+./led.h(49): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   49 |         PORTA->PCR[GREEN_LED_5] |= PORT_PCR_MUX(1);
       |         ^~~~~~~~~~
 C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4441): note: expanded from macro 'PORTA'
  4441 | #define PORTA                                    ((PORT_Type *)PORTA_BASE)
       |                                                  ^
-main.c(206): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  206 |         PORTD->PCR[RIGHT_MOTOR_FWD] &= ~PORT_PCR_MUX_MASK;
+main.c(10): warning: In file included from...
+./led.h(51): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   51 |         PORTA->PCR[GREEN_LED_6] &= ~PORT_PCR_MUX_MASK;
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4441): note: expanded from macro 'PORTA'
+ 4441 | #define PORTA                                    ((PORT_Type *)PORTA_BASE)
+      |                                                  ^
+main.c(10): warning: In file included from...
+./led.h(52): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   52 |         PORTA->PCR[GREEN_LED_6] |= PORT_PCR_MUX(1);
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4441): note: expanded from macro 'PORTA'
+ 4441 | #define PORTA                                    ((PORT_Type *)PORTA_BASE)
+      |                                                  ^
+main.c(10): warning: In file included from...
+./led.h(54): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   54 |         PORTE->PCR[GREEN_LED_7] &= ~PORT_PCR_MUX_MASK;
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4461): note: expanded from macro 'PORTE'
+ 4461 | #define PORTE                                    ((PORT_Type *)PORTE_BASE)
+      |                                                  ^
+main.c(10): warning: In file included from...
+./led.h(55): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   55 |         PORTE->PCR[GREEN_LED_7] |= PORT_PCR_MUX(1);
+      |         ^~~~~~~~~~
+C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4461): note: expanded from macro 'PORTE'
+ 4461 | #define PORTE                                    ((PORT_Type *)PORTE_BASE)
+      |                                                  ^
+main.c(10): warning: In file included from...
+./led.h(57): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   57 |         PORTD->PCR[GREEN_LED_8] &= ~PORT_PCR_MUX_MASK;
       |         ^~~~~~~~~~
 C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4456): note: expanded from macro 'PORTD'
  4456 | #define PORTD                                    ((PORT_Type *)PORTD_BASE)
       |                                                  ^
-main.c(207): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  207 |         PORTD->PCR[RIGHT_MOTOR_FWD] |= PORT_PCR_MUX(4);
+main.c(10): warning: In file included from...
+./led.h(58): warning: unsafe buffer access [-Wunsafe-buffer-usage]
+   58 |         PORTD->PCR[GREEN_LED_8] |= PORT_PCR_MUX(1);
       |         ^~~~~~~~~~
 C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4456): note: expanded from macro 'PORTD'
  4456 | #define PORTD                                    ((PORT_Type *)PORTD_BASE)
       |                                                  ^
-main.c(208): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  208 |         PORTD->PCR[RIGHT_MOTOR_RVS] &= ~PORT_PCR_MUX_MASK;
-      |         ^~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4456): note: expanded from macro 'PORTD'
- 4456 | #define PORTD                                    ((PORT_Type *)PORTD_BASE)
-      |                                                  ^
-main.c(209): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  209 |         PORTD->PCR[RIGHT_MOTOR_RVS] |= PORT_PCR_MUX(4);
-      |         ^~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4456): note: expanded from macro 'PORTD'
- 4456 | #define PORTD                                    ((PORT_Type *)PORTD_BASE)
-      |                                                  ^
-main.c(231): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  231 |         TPM0_C1SC &= ~((TPM_CnSC_ELSB_MASK) | (TPM_CnSC_ELSA_MASK) | (TPM_CnSC_MSB_MASK) | (TPM_CnSC_MSA_MASK));
-      |         ^~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6289): note: expanded from macro 'TPM0_C1SC'
- 6289 | #define TPM0_C1SC                                TPM_CnSC_REG(TPM0,1)
-      |                                                  ^~~~~~~~~~~~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6095): note: expanded from macro 'TPM_CnSC_REG'
- 6095 | #define TPM_CnSC_REG(base,index)                 ((base)->CONTROLS[index].CnSC)
-      |                                                   ^~~~~~~~~~~~~~~~
-main.c(232): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  232 |         TPM0_C1SC |= (TPM_CnSC_ELSB(1)) | (TPM_CnSC_MSB(1));
-      |         ^~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6289): note: expanded from macro 'TPM0_C1SC'
- 6289 | #define TPM0_C1SC                                TPM_CnSC_REG(TPM0,1)
-      |                                                  ^~~~~~~~~~~~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6095): note: expanded from macro 'TPM_CnSC_REG'
- 6095 | #define TPM_CnSC_REG(base,index)                 ((base)->CONTROLS[index].CnSC)
-      |                                                   ^~~~~~~~~~~~~~~~
-main.c(233): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  233 |         TPM0_C2SC &= ~((TPM_CnSC_ELSB_MASK) | (TPM_CnSC_ELSA_MASK) | (TPM_CnSC_MSB_MASK) | (TPM_CnSC_MSA_MASK));
-      |         ^~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6291): note: expanded from macro 'TPM0_C2SC'
- 6291 | #define TPM0_C2SC                                TPM_CnSC_REG(TPM0,2)
-      |                                                  ^~~~~~~~~~~~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6095): note: expanded from macro 'TPM_CnSC_REG'
- 6095 | #define TPM_CnSC_REG(base,index)                 ((base)->CONTROLS[index].CnSC)
-      |                                                   ^~~~~~~~~~~~~~~~
-main.c(234): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  234 |         TPM0_C2SC |= (TPM_CnSC_ELSB(1)) | (TPM_CnSC_MSB(1));
-      |         ^~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6291): note: expanded from macro 'TPM0_C2SC'
- 6291 | #define TPM0_C2SC                                TPM_CnSC_REG(TPM0,2)
-      |                                                  ^~~~~~~~~~~~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6095): note: expanded from macro 'TPM_CnSC_REG'
- 6095 | #define TPM_CnSC_REG(base,index)                 ((base)->CONTROLS[index].CnSC)
-      |                                                   ^~~~~~~~~~~~~~~~
-main.c(235): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  235 |         TPM0_C3SC &= ~((TPM_CnSC_ELSB_MASK) | (TPM_CnSC_ELSA_MASK) | (TPM_CnSC_MSB_MASK) | (TPM_CnSC_MSA_MASK));
-      |         ^~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6293): note: expanded from macro 'TPM0_C3SC'
- 6293 | #define TPM0_C3SC                                TPM_CnSC_REG(TPM0,3)
-      |                                                  ^~~~~~~~~~~~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6095): note: expanded from macro 'TPM_CnSC_REG'
- 6095 | #define TPM_CnSC_REG(base,index)                 ((base)->CONTROLS[index].CnSC)
-      |                                                   ^~~~~~~~~~~~~~~~
-main.c(236): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  236 |         TPM0_C3SC |= (TPM_CnSC_ELSB(1)) | (TPM_CnSC_MSB(1));
-      |         ^~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6293): note: expanded from macro 'TPM0_C3SC'
- 6293 | #define TPM0_C3SC                                TPM_CnSC_REG(TPM0,3)
-      |                                                  ^~~~~~~~~~~~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(6095): note: expanded from macro 'TPM_CnSC_REG'
- 6095 | #define TPM_CnSC_REG(base,index)                 ((base)->CONTROLS[index].CnSC)
-      |                                                   ^~~~~~~~~~~~~~~~
-main.c(249): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  249 |   PORTE->PCR[UART_TX_PORTE22] &= ~PORT_PCR_MUX_MASK;
-      |   ^~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4461): note: expanded from macro 'PORTE'
- 4461 | #define PORTE                                    ((PORT_Type *)PORTE_BASE)
-      |                                                  ^
-main.c(250): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  250 |   PORTE->PCR[UART_TX_PORTE22] |= PORT_PCR_MUX(4); //enable UART functionality
-      |   ^~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4461): note: expanded from macro 'PORTE'
- 4461 | #define PORTE                                    ((PORT_Type *)PORTE_BASE)
-      |                                                  ^
-main.c(252): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  252 |   PORTE->PCR[UART_TX_PORTE23] &= ~PORT_PCR_MUX_MASK;
-      |   ^~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4461): note: expanded from macro 'PORTE'
- 4461 | #define PORTE                                    ((PORT_Type *)PORTE_BASE)
-      |                                                  ^
-main.c(253): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  253 |   PORTE->PCR[UART_TX_PORTE23] |= PORT_PCR_MUX(4);
-      |   ^~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4461): note: expanded from macro 'PORTE'
- 4461 | #define PORTE                                    ((PORT_Type *)PORTE_BASE)
-      |                                                  ^
-main.c(255): warning: unsafe buffer access [-Wunsafe-buffer-usage]
-  255 |         PORTE->PCR[UART_TX_PORTE23] |= (0b1010 << 16);
-      |         ^~~~~~~~~~
-C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include\MKL25Z4.h(4461): note: expanded from macro 'PORTE'
- 4461 | #define PORTE                                    ((PORT_Type *)PORTE_BASE)
-      |                                                  ^
-86 warnings generated.
+101 warnings generated.
 compiling main.c...
 linking...
-Program Size: Code=3896 RO-data=288 RW-data=260 ZI-data=368  
-".\Objects\Final_Project.axf" - 0 Error(s), 88 Warning(s).
+Program Size: Code=11132 RO-data=568 RW-data=424 ZI-data=34496  
+".\Objects\Final_Project.axf" - 0 Error(s), 107 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -557,7 +694,9 @@ Package Vendor: ARM
                 http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
                 ARM::CMSIS@5.9.0
                 CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: RTOS2 Version: 2.1.3
    * Component: CORE Version: 5.6.0
+   * Component: Keil RTX5 Variant: Library Version: 5.5.4
 
 Package Vendor: Keil
                 https://www.keil.com/pack/Keil.Kinetis_KLxx_DFP.1.15.1.pack
@@ -566,20 +705,42 @@ Package Vendor: Keil
    * Component: Startup Version: 2.5.0
 
 <h2>Collection of Component include folders:</h2>
+  ./RTE/CMSIS
   ./RTE/Device/MKL25Z128xxx4
   ./RTE/_Target_1
   C:/Users/bsiva/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/Users/bsiva/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/RTOS2/Include
+  C:/Users/bsiva/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/RTOS2/RTX/Include
   C:/Users/bsiva/AppData/Local/Arm/Packs/Keil/Kinetis_KLxx_DFP/1.15.1/Device/Include
 
 <h2>Collection of Component Files used:</h2>
 
+   * Component: ::CMSIS:RTOS2(API)@2.1.3
+      Include file:  CMSIS/RTOS2/Include/cmsis_os2.h
+
    * Component: ARM::CMSIS:CORE@5.6.0
+
+   * Component: ARM::CMSIS:RTOS2:Keil RTX5&Library@5.5.4
+      Source file:   CMSIS/RTOS2/RTX/Template/Semaphore.c
+      Source file:   CMSIS/RTOS2/RTX/Template/Thread.c
+      Include file:  CMSIS/RTOS2/RTX/Config/RTX_Config.h
+      Include file:  CMSIS/RTOS2/RTX/Include/rtx_os.h
+      Source file:   CMSIS/RTOS2/RTX/Template/main.c
+      Source file:   CMSIS/RTOS2/RTX/Config/RTX_Config.c
+      Source file:   CMSIS/RTOS2/RTX/Template/Events.c
+      Source file:   CMSIS/RTOS2/RTX/Template/MemPool.c
+      Source file:   CMSIS/RTOS2/RTX/Template/MsgQueue.c
+      Source file:   CMSIS/RTOS2/RTX/Template/Mutex.c
+      Source file:   CMSIS/RTOS2/RTX/Template/svc_user.c
+      Library file:  CMSIS/RTOS2/RTX/Library/ARM/RTX_CM0.lib
+      Source file:   CMSIS/RTOS2/RTX/Source/rtx_lib.c
+      Source file:   CMSIS/RTOS2/RTX/Template/Timer.c
 
    * Component: Keil::Device:Startup@2.5.0
       Include file:  Device/Source/system_MKL25Z4.h
-      Source file:   Device/Source/system_MKL25Z4.c
       Source file:   Device/Source/ARM/startup_MKL25Z4.s
-Build Time Elapsed:  00:00:03
+      Source file:   Device/Source/system_MKL25Z4.c
+Build Time Elapsed:  00:00:04
 </pre>
 </body>
 </html>
